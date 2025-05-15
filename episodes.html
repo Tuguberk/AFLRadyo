@@ -40,7 +40,7 @@
             document.getElementById('nav-menu').classList.toggle('hidden');
         });
 
-        fetch('https://aflradyo.tuguberk.dev/episodes.json')
+        fetch('https://aflradyo-media.tuguberk.dev/episodes.json')
             .then(r => r.json())
             .then(renderBölümler)
             .catch(err => console.error('Bölümler.json yüklenemedi', err));
