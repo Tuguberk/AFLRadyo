@@ -1,0 +1,69 @@
+<!-- =============== episodes.html =============== -->
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth bg-white text-gray-800">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bölümler | AFL Radyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- ░ Navbar ░ -->
+    <header class="bg-indigo-600 text-white sticky top-0 z-50 shadow">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <a href="index.html" class="text-xl font-semibold whitespace-nowrap">🎙️ AFL Radyo</a>
+            <button id="nav-toggle" class="md:hidden focus:outline-none" aria-label="Toggle navigation">☰</button>
+            <nav id="nav-menu" class="hidden md:flex space-x-6 font-medium">
+                <a href="index.html" class="hover:underline">Anasayfa</a>
+                <a href="episodes.html" class="hover:underline font-semibold underline">Bölümler</a>
+                <a href="about.html" class="hover:underline">Hakkında</a>
+                <a href="contact.html" class="hover:underline">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Bölümler</h1>
+        <div id="Bölümler-list" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+    </main>
+
+    <footer class="bg-indigo-600 text-white py-4 text-center">
+        © 2025 AFL Radyo
+    </footer>
+
+    <!-- ░ Scripts ░ -->
+    <script>
+        document.getElementById('nav-toggle').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+
+        fetch('https://aflradyo.tuguberk.dev/episodes.json')
+            .then(r => r.json())
+            .then(renderBölümler)
+            .catch(err => console.error('Bölümler.json yüklenemedi', err));
+
+        function renderBölümler(Bölümler) {
+            const wrap = document.getElementById('Bölümler-list');
+            wrap.innerHTML = '';
+            Bölümler.sort((a, b) => new Date(b.date) - new Date(a.date));
+            Bölümler.forEach(ep => {
+                const card = document.createElement('article');
+                card.className = 'bg-gray-50 rounded-2xl shadow p-6 flex flex-col';
+                card.innerHTML = `
+          <h2 class="text-xl font-semibold mb-2">${ep.title}</h2>
+          <p class="text-sm text-gray-500 mb-1">${new Date(ep.date).toLocaleDateString()}</p>
+          <p class="mb-4 flex-grow">${ep.description}</p>
+          <audio controls class="w-full mt-auto rounded">
+            <source src="${ep.file}" type="audio/mpeg">
+            Tarayıcınız ses öğesini desteklemiyor.
+          </audio>`;
+                wrap.appendChild(card);
+            });
+        }
+    </script>
+</body>
+
+</html>

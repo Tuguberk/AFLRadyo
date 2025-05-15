@@ -1,0 +1,63 @@
+<!-- ================= index.html ================= -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-white text-gray-800">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎙️ AFL Radyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- ░░ Navbar ░░ -->
+    <header class="bg-indigo-600 text-white sticky top-0 z-50 shadow">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <a href="index.html" class="text-xl font-semibold whitespace-nowrap">🎙️ AFL Radyo</a>
+            <button id="nav-toggle" class="md:hidden focus:outline-none" aria-label="Toggle navigation">☰</button>
+            <nav id="nav-menu" class="hidden md:flex space-x-6 font-medium">
+                <a href="index.html" class="hover:underline">Anasayfa</a>
+                <a href="episodes.html" class="hover:underline">Bölümler</a>
+                <a href="about.html" class="hover:underline">Hakkında</a>
+                <a href="contact.html" class="hover:underline">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ░░ Hero ░░ -->
+    <main class="flex-grow">
+        <section class="container mx-auto px-4 py-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6">🎙️ AFL Radyo</h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl mb-12">
+                Resmi lise podcast'ımıza hoş geldiniz. Öğrenci liderliğindeki tartışmalar, röportajlar ve daha fazlasına
+                dalın.
+            </p>
+
+            <!-- ░ Featured Episode Card ░ -->
+            <article id="featured" class="bg-gray-50 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-3" id="feat-title">Bölüm 1: AFL Radyo'ya Hoş Geldiniz</h2>
+                <p class="mb-4" id="feat-desc">Gösteriyi ve ekibi tanıtan ilk bölümümüz!</p>
+                <audio id="feat-player" controls class="w-full rounded">
+                    <source src="https://example-account.r2.cloudflarestorage.com/Bölümler/ep1.mp3" type="audio/mpeg" />
+                    Tarayıcınız ses öğesini desteklemiyor.
+                </audio>
+            </article>
+        </section>
+    </main>
+
+    <!-- ░░ Footer ░░ -->
+    <footer class="bg-indigo-600 text-white py-4 text-center">
+        © 2025 AFL Radyo ❤️ <a href="https://tuguberk.dev" target="_blank">Tuğberk Akbulut</a>
+    </footer>
+
+    <!-- ░░ Scripts ░░ -->
+    <script>
+        // Mobile nav toggle
+        document.getElementById('nav-toggle').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

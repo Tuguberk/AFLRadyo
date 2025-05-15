@@ -1,0 +1,73 @@
+<!-- =============== about.html =============== -->
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth bg-white text-gray-800">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkında | AFL Radyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <header class="bg-indigo-600 text-white sticky top-0 z-50 shadow">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <a href="index.html" class="text-xl font-semibold whitespace-nowrap">🎙️ AFL Radyo</a>
+            <button id="nav-toggle" class="md:hidden focus:outline-none" aria-label="Toggle navigation">☰</button>
+            <nav id="nav-menu" class="hidden md:flex space-x-6 font-medium">
+                <a href="index.html" class="hover:underline">Anasayfa</a>
+                <a href="episodes.html" class="hover:underline">Bölümler</a>
+                <a href="about.html" class="hover:underline font-semibold underline">Hakkında</a>
+                <a href="contact.html" class="hover:underline">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Podcast Hakkında</h1>
+        <p class="max-w-3xl mx-auto mb-12 text-lg">
+            AFL Radyo, kampüsümüzün seslerini, hikayelerini ve yaratıcılığını sergileyen öğrenci yönetimli bir podcast'tir.
+            İlham verici öğretmenlerle yapılan röportajlardan güncel konulardaki tartışmalara kadar, her öğrenciye bir platform sunarken
+            bilgilendirmeyi ve eğlendirmeyi amaçlıyoruz.
+        </p>
+
+        <h2 class="text-2xl font-semibold mb-6 text-center">Ekibi Tanıyın</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Team Member Template -->
+            <div class="bg-gray-50 rounded-2xl p-6 text-center shadow">
+                <img src="https://placekitten.com/200/200" alt="Alex"
+                    class="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
+                <h3 class="text-xl font-medium mb-1">Alex</h3>
+                <p class="text-gray-500 text-sm">Sunucu & Editör</p>
+                <p class="mt-3 text-sm">Ses hikayeciliği ve müzik prodüksiyonuna tutkulu bir junior.</p>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 text-center shadow">
+                <img src="https://placekitten.com/201/201" alt="Jordan"
+                    class="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
+                <h3 class="text-xl font-medium mb-1">Jordan</h3>
+                <p class="text-gray-500 text-sm">Yapımcı</p>
+                <p class="mt-3 text-sm">Her bölümün kusursuz duyulmasını sağlayan bir senior.</p>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-6 text-center shadow">
+                <img src="https://placekitten.com/202/202" alt="Taylor"
+                    class="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
+                <h3 class="text-xl font-medium mb-1">Taylor</h3>
+                <p class="text-gray-500 text-sm">Araştırmacı</p>
+                <p class="mt-3 text-sm">En havalı konuları ve gerçekleri keşfeden bir sophomore.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-indigo-600 text-white py-4 text-center">
+        © 2025 AFL Radyo
+    </footer>
+
+    <script>
+        document.getElementById('nav-toggle').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
